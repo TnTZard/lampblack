@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anzhi.system.mapper.ResourcesMapper">
+	
+  <resultMap id="resources" type="com.anzhi.system.entity.Resources">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="resUrl" jdbcType="VARCHAR" property="resUrl" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="parentId" jdbcType="INTEGER" property="parentId" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+
+   <select id="findUserRes" resultMap="resources" parameterType="String">
+        select * from resources re 
+		left join role_resources rr on re.id = rr.resourcesId 
+		left join user_role ur on rr.roleId=ur.roleId 
+		left join user u on ur.userId=u.id
+		where u.username=#{values}
+    </select>
+	
+	
+</mapper>

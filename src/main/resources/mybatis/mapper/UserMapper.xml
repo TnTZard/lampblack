@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+        
+<mapper namespace="com.anzhi.dao.UserDao">
+
+
+	<select id="findUserById" resultType="User" parameterType="Long">
+		select id,username,password,enable from user where id=#{id};
+	</select>
+	
+	
+	
+	<select id="getUser" resultType="com.alibaba.fastjson.JSONObject">
+		select 
+			u.id             id,
+			u.username username,
+			u.password password,
+			u.role          role
+		from 
+			user u
+		where u.username=  #{username}
+		  AND u.password = #{password}
+          AND u.enable = '1'
+	</select>
+	
+	<select id="getRole" parameterType="String" resultType="com.alibaba.fastjson.JSONObject" >
+		select
+			role.roleDesc
+		from user inner join role on 
+			user.role = role.id
+		where
+			user.username=#{username}	
+	</select>
+	
+	<!-- <select id="findAll" resultType="Dept">
+		select deptno,dname,db_source from dept;
+	</select>
+	<insert id="addUser" parameterType="Dept">
+		INSERT INTO dept(dname,db_source) Values(#{dname},DATABASE());
+	</insert> -->
+</mapper>

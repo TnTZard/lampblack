@@ -16,10 +16,8 @@ import org.springframework.stereotype.Service;
 public class ResourcesServiceImpl extends ServiceImpl<ResourcesMapper, Resources> implements IResourcesService {
 
 	@Override
-	public List<Resources> findUserRes(String userName) {
-		return baseMapper.findUserRes(userName);
+	public List<Resources> findResources(String username) {
+		return baseMapper.findResources(username);
 	}
-	
-	
-	
+
 }

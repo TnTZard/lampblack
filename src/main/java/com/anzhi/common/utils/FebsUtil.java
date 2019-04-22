@@ -1,8 +1,8 @@
 package com.anzhi.common.utils;
 
 
+import com.anzhi.auth.jwt.JWTUtil;
 import com.anzhi.constants.Constants;
-import com.anzhi.jwt.JWTUtil;
 import com.anzhi.system.entity.User;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import lombok.extern.slf4j.Slf4j;

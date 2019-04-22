@@ -14,12 +14,10 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Resources implements Serializable {
+public class Resources extends Base implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    private Integer id;
-    
+
     /**
      * 资源名称
      */
@@ -32,20 +30,10 @@ public class Resources implements Serializable {
     private String resUrl;
 
     /**
-     * 资源类型   1:菜单    2：按钮
-     */
-    private Integer type;
-
-    /**
      * 父资源
      */
         @TableField("parentId")
     private Integer parentId;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
 
 
 }

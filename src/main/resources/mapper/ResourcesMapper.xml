@@ -11,11 +11,10 @@
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
 
-   <select id="findUserRes" resultMap="resources" parameterType="String">
+   <select id="findResources" resultMap="resources" parameterType="String">
         select * from resources re 
 		left join role_resources rr on re.id = rr.resourcesId 
-		left join user_role ur on rr.roleId=ur.roleId 
-		left join user u on ur.userId=u.id
+		left join user u on rr.roleid = u.roleid
 		where u.username=#{values}
     </select>
 	

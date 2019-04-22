@@ -8,9 +8,13 @@ mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml
   configuration:
     jdbc-type-for-null: null
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     # 关闭 mybatis-plus的 banner
     banner: false
+ 
+   
 
   
 spring:
@@ -19,8 +23,8 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.147.129:3306/lampblackDB?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
-#   url: jdbc:mysql://192.168.147.129:3306/youyan?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+#   url: jdbc:mysql://192.168.147.129:3306/lampblackDB?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+    url: jdbc:mysql://47.112.16.168:3306/lampblankDB?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
     username: root
     password: root
     dbcp2:

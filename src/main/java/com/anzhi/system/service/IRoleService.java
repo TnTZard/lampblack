@@ -8,7 +8,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IRoleService extends IService<Role> {
 	
-	Role find(String username);
-	
+	Role getRole(String username);
 	
 }

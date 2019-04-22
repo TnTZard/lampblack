@@ -4,8 +4,10 @@ import com.anzhi.system.entity.User;
 import com.anzhi.system.mapper.UserMapper;
 import com.anzhi.system.service.IUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,10 +17,35 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
 	@Override
-	public User findByName(String username) {
-		return baseMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));		
+	public User getUser(String name) {		
+		return baseMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getLoginname, name));
 	}
 
-	
+	@Override
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void addUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
 }

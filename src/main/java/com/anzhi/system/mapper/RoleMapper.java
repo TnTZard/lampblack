@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface RoleMapper extends BaseMapper<Role> {
 	
-	Role find(String username);
-
+	Role findRole(String username);
+	
+	
 }
